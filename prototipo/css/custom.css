@@ -1,0 +1,126 @@
+body { background-color: #f4f6f8; }
+
+#app-wrapper { height: 100vh; overflow: hidden; }
+
+.sidebar-section-title {
+  font-size: .65rem;
+  letter-spacing: .08em;
+}
+
+.brand-icon  { width: 42px; height: 42px; }
+.user-avatar { width: 36px; height: 36px; font-size: .78rem; }
+
+.sidebar-link { transition: background-color .15s ease, color .15s ease; }
+.sidebar-link:not(.active_item):hover {
+  background-color: rgba(255, 255, 255, .08) !important;
+  color: #fff !important;
+}
+
+.sidebar-link.active_item {
+  background-color: var(--bs-primary);
+  color: #fff !important;
+}
+.sidebar-link.active_item:hover {
+  background-color: var(--bs-primary);
+  color: #fff !important;
+}
+
+.app-header {
+  min-height: 60px;
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.card { transition: box-shadow .2s ease; }
+
+.sidebar-user-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+}
+.sidebar-user-btn:hover,
+.sidebar-user-btn:focus-visible {
+  background-color: rgba(255, 255, 255, .08) !important;
+  outline: none;
+}
+
+.user-menu-chevron { transition: transform .2s ease; }
+.user-menu-chevron.rotated { transform: rotate(180deg); }
+
+.sidebar-toggle-btn { transition: transform .2s ease; }
+.sidebar-toggle-btn:hover { transform: scale(1.08); }
+
+.sidebar-nav::-webkit-scrollbar { width: 4px; }
+.sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .15);
+  border-radius: 4px;
+}
+
+.app-content::-webkit-scrollbar { width: 6px; }
+.app-content::-webkit-scrollbar-track { background: transparent; }
+.app-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, .12);
+  border-radius: 4px;
+}
+
+#sidebar {
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  overflow: hidden;
+  transition: width .25s ease, min-width .25s ease;
+}
+
+#sidebar.sidebar-collapsed {
+  width: 0;
+  min-width: 0;
+}
+
+.sidebar-nav {
+  min-height: 0;
+}
+
+/* En mobile el sidebar se convierte en un panel deslizante */
+@media (max-width: 991.98px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1045;
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+    height: 100%;
+  }
+  #sidebar.sidebar-open { transform: translateX(0); }
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1040;
+    background: rgba(0, 0, 0, .5);
+  }
+  .sidebar-overlay.show { display: block; }
+}
+
+/* Login */
+.login-wrapper { min-height: 100vh; }
+
+.login-brand {
+  width: 44%;
+  max-width: 560px;
+  background-image: radial-gradient(circle at 85% 15%, rgba(255, 10, 65, .18), transparent 45%);
+}
+.login-brand-copy { max-width: 400px; }
+
+.login-card { max-width: 400px; }
+
+.login-input-group .input-group-text { border-color: var(--bs-border-color); }
+.login-input-group .form-control:focus { box-shadow: none; }
+.login-input-group:focus-within {
+  border-radius: var(--bs-border-radius);
+  box-shadow: 0 0 0 .25rem rgba(255, 10, 65, .15);
+}
+.login-input-group:focus-within .input-group-text,
+.login-input-group:focus-within .form-control { border-color: var(--bs-primary); }
+.login-input-group .form-control.is-invalid ~ .input-group-text { border-color: var(--bs-danger); }
